@@ -3,6 +3,7 @@ from .models import Product, Cart, CartItem, Order, OrderItem
 from .forms import ProductForm, UserRegisterForm
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib import messages
+from django.contrib.auth import logout
 
 # Check if the user is an admin
 def is_admin(user):
@@ -131,3 +132,9 @@ def place_order(request):
 def view_orders(request):
     orders = Order.objects.filter(user=request.user).order_by('-created_at')
     return render(request, 'ecommerce/orders.html', {'orders': orders})
+
+# Custom Logout View
+def custom_logout(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect('login')  # Redirect to the login page or homepage
