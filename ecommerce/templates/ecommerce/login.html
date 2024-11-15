@@ -1,0 +1,23 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}
+    Login
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <header>
+            <h1>Login</h1>
+        </header>
+        <main>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Login</button>
+            </form>
+            <nav class="mt-3">
+                <a href="{% url 'register' %}" class="btn btn-link">Don't have an account? Register here</a>
+            </nav>
+        </main>
+    </div>
+{% endblock %}

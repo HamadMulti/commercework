@@ -1,0 +1,19 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'ecommerce/css/admin_styles.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="admin-container">
+        <!-- Optional custom header -->
+        <header class="admin-header">
+            <h1>{{ site_header|default:_('Admin Dashboard') }}</h1>
+        </header>
+        <!-- Default admin content -->
+        {{ block.super }}
+    </div>
+{% endblock %}

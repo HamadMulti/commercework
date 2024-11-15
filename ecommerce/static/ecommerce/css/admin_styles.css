@@ -1,0 +1,145 @@
+/* admin_styles.css */
+
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container and Box Styling */
+.admin-container {
+    margin: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Header Styling */
+.admin-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.5em;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Form Elements */
+.admin-form input,
+.admin-form select,
+.admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+.admin-form label {
+    font-weight: bold;
+    margin-top: 10px;
+    display: block;
+}
+
+/* Buttons */
+.admin-btn {
+    padding: 10px 15px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    display: inline-block;
+    font-size: 1em;
+    text-align: center;
+    text-decoration: none;
+}
+
+.admin-btn:hover {
+    background-color: #0056b3;
+}
+
+.admin-btn-danger {
+    background-color: #dc3545;
+}
+
+.admin-btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Table Styling */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th,
+.admin-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+.admin-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+.admin-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+/* Sidebar Navigation */
+.admin-sidebar {
+    background-color: #343a40;
+    padding: 15px;
+    color: white;
+    height: 100vh;
+}
+
+.admin-sidebar a {
+    color: #ddd;
+    text-decoration: none;
+    display: block;
+    padding: 10px 15px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.admin-sidebar a:hover {
+    background-color: #495057;
+    color: white;
+}
+
+/* Notifications and Alerts */
+.admin-alert {
+    padding: 10px 15px;
+    background-color: #ffc107;
+    border-radius: 4px;
+    margin: 10px 0;
+    color: #856404;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .admin-header {
+        font-size: 1.2em;
+        padding: 10px;
+    }
+
+    .admin-btn {
+        font-size: 0.9em;
+        padding: 8px 12px;
+    }
+
+    .admin-sidebar {
+        padding: 10px;
+    }
+}
