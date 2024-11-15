@@ -15,13 +15,13 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['commercework.onrender.com']
 
-# Email settings for Mailjet (for password reset)
+# Mailjet Email Configuration
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'in-v3.mailjet.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'your-mailjet-api-key-here'
-EMAIL_HOST_PASSWORD = 'your-mailjet-api-secret-here'
+EMAIL_HOST_USER = 'dbe53463d6a5d5143be9b731dab01884'  # Public Key
+EMAIL_HOST_PASSWORD = 'b0d235fb2dc9470137cb8e262137d2e3'  # Secret Key
 DEFAULT_FROM_EMAIL = 'your-email@example.com'
 
 # Application definition
