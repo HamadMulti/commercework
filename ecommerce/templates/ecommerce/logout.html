@@ -11,10 +11,7 @@
         <h1>You have been logged out.</h1>
     </header>
     <main>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Logout</button>
-        </form>
+        <p>Thank you for visiting Hamad Stores. We hope to see you again soon!</p>
         <a href="{% url 'login' %}" class="btn btn-primary">Login again</a>
     </main>
 </body>
