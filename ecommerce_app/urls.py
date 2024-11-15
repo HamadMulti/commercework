@@ -10,7 +10,7 @@ urlpatterns = [
     path('login/', auth_views.LoginView.as_view(template_name='ecommerce/login.html'), name='login'),
     
     # Updated Logout URL without custom template
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),  # No need for custom template here
+    path('logout/', views.custom_logout, name='logout'),  # URL for custom logout  
 
     # Password Reset Views
     path('password_reset/', auth_views.PasswordResetView.as_view(template_name='ecommerce/password_reset_form.html'), name='password_reset'),
