@@ -22,7 +22,7 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'dbe53463d6a5d5143be9b731dab01884'  # Public Key
 EMAIL_HOST_PASSWORD = 'b0d235fb2dc9470137cb8e262137d2e3'  # Secret Key
-DEFAULT_FROM_EMAIL = 'your-email@example.com'
+DEFAULT_FROM_EMAIL = 'maithyaveronicah2@gmail.com'
 
 # Application definition
 INSTALLED_APPS = [
