@@ -1,28 +1,28 @@
-# ecommerce_app/settings.py
-
 from pathlib import Path
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Security key (keep this secret)
-SECRET_KEY = 'django-insecure-your-secret-key'
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
-# Enable debugging for development
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'django-insecure-xnj0pa=)o_ets0*=9-b#3!tqz@%jc37^j7@*_0itr9q(k_+>'
+
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# Allowed hosts (add your deployment domain if needed)
 ALLOWED_HOSTS = ['commercework.onrender.com']
 
-# Email settings for Mailjet
+# Email settings for Mailjet (for password reset)
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'in-v3.mailjet.com'  # Mailjet's SMTP server
-EMAIL_PORT = 587  # Mailjet SMTP port
-EMAIL_USE_TLS = True  # Use TLS for secure connection
-EMAIL_HOST_USER = 'your-mailjet-api-key'  # Your Mailjet API key (used as username)
-EMAIL_HOST_PASSWORD = 'your-mailjet-api-secret'  # Your Mailjet API secret (used as password)
-DEFAULT_FROM_EMAIL = 'your-email@example.com'  # The email address that will appear in the "From" field
+EMAIL_HOST = 'in-v3.mailjet.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'your-mailjet-api-key-here'
+EMAIL_HOST_PASSWORD = 'your-mailjet-api-secret-here'
+DEFAULT_FROM_EMAIL = 'your-email@example.com'
 
 # Application definition
 INSTALLED_APPS = [
@@ -66,7 +66,9 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'ecommerce_app.wsgi.application'
 
-# Database settings (SQLite for now)
+# Database
+# https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -74,7 +76,9 @@ DATABASES = {
     }
 }
 
-# Password validation settings
+# Password validation
+# https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -90,23 +94,30 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Static files settings
+# Forgot password settings - ensure that these URLs exist in your project's URLs file
+PASSWORD_RESET_TIMEOUT = 14400  # 4 hours
+PASSWORD_RESET_URL = '/password-reset/'
+
+# Internationalization
+# https://docs.djangoproject.com/en/5.1/topics/i18n/
+
+TIME_ZONE = 'Africa/Johannesburg'
+USE_TZ = True
+LANGUAGE_CODE = 'en-us'
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/5.1/howto/static-files/
+
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'ecommerce/static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Media files settings
+# Media files
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-# Redirect settings after login and logout
 LOGIN_REDIRECT_URL = '/ecommerce/products/'
 LOGOUT_REDIRECT_URL = '/login/'
 
 # Static files storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-# Timezone and language settings
-TIME_ZONE = 'Africa/Johannesburg'
-USE_TZ = True
-LANGUAGE_CODE = 'en-us'
