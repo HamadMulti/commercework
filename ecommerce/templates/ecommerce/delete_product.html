@@ -1,0 +1,23 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}
+    Delete Product
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <header>
+            <h1>Delete Product</h1>
+        </header>
+        <main>
+            <p>Are you sure you want to delete the product: <strong>{{ product.name }}</strong>?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Yes, Delete</button>
+            </form>
+            <nav class="mt-3">
+                <a href="{% url 'product_list' %}" class="btn btn-link">Cancel</a>
+            </nav>
+        </main>
+    </div>
+{% endblock %}

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Shop Hamad Stores{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        footer {
+            background-color: #34495e;
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .navbar-toggler {
+            border: none;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            background: none;
+        }
+
+        .navbar-menu {
+            display: none;
+            position: absolute;
+            top: 100%; /* Ensures it remains below the button */
+            left: 0;
+            width: 100%;
+            background-color: #34495e;
+            z-index: 1000;
+        }
+
+        .navbar-menu.show {
+            display: block;
+        }
+
+        .navbar-menu ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        .navbar-menu li {
+            padding: 10px;
+            text-align: center;
+        }
+
+        .navbar-menu a {
+            color: white;
+            text-decoration: none;
+            display: block;
+        }
+
+        .navbar-menu a:hover {
+            background-color: #f39c12;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header Section with Logo and Navigation Menu -->
+<header class="bg-primary py-3">
+    <div class="container d-flex justify-content-between align-items-center position-relative">
+        <!-- Logo -->
+        <img src="https://i.ibb.co/V2NDZY2/logo.png" alt="Hamad Stores Logo" style="height: 70px;">
+
+        <!-- Navigation Menu -->
+        <nav>
+            <!-- Toggle button -->
+            <button id="menuToggle" class="navbar-toggler">Menu</button>
+
+            <!-- Hidden menu list -->
+            <div id="navbarMenu" class="navbar-menu">
+                <ul>
+                    <li><a href="{% url 'home' %}">Home</a></li>
+                    <li><a href="{% url 'product_list' %}">Products</a></li>
+                    {% if user.is_authenticated %}
+                        <li><a href="{% url 'view_orders' %}">My Orders</a></li>
+                        <li><a href="{% url 'logout' %}">Logout</a></li>
+                    {% else %}
+                        <li><a href="{% url 'login' %}">Login</a></li>
+                        <li><a href="{% url 'register' %}">Register</a></li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<!-- Main Content Section -->
+<div class="container my-5">
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- Footer Section -->
+<footer>
+    <div class="container">
+        <p>&copy; 2024 Hamad Stores. All rights reserved.</p>
+    </div>
+</footer>
+
+<!-- Bootstrap JS and custom script for menu toggle -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const menuToggle = document.getElementById('menuToggle');
+        const navbarMenu = document.getElementById('navbarMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navbarMenu.classList.toggle('show');
+        });
+
+        // Optional: Close the menu if clicked outside
+        document.addEventListener('click', (event) => {
+            if (!menuToggle.contains(event.target) && !navbarMenu.contains(event.target)) {
+                navbarMenu.classList.remove('show');
+            }
+        });
+    });
+</script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+
+</body>
+    </html>

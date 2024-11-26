@@ -1,0 +1,22 @@
+{% extends 'ecommerce/base.html' %}
+
+{% block title %}
+    Order Placed
+{% endblock %}
+
+{% block content %}
+    <div class="container mt-4">
+        <header>
+            <h1>Order Successfully Placed!</h1>
+        </header>
+        <main>
+            <p>Thank you for your order, {{ order.user.username }}.</p>
+            <p><strong>Order ID:</strong> {{ order.id }}</p>
+            <p><strong>Total Amount:</strong> ${{ order.total_amount }}</p>
+            <nav class="mt-3">
+                <a href="{% url 'view_orders' %}" class="btn btn-primary">View Your Orders</a>
+                <a href="{% url 'product_list' %}" class="btn btn-link">Back to Products</a>
+            </nav>
+        </main>
+    </div>
+{% endblock %}
